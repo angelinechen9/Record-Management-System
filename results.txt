@@ -1,0 +1,403 @@
+SQL> start values.sql
+
+6 rows deleted.
+
+
+5 rows deleted.
+
+
+5 rows deleted.
+
+
+4 rows deleted.
+
+
+2 rows deleted.
+
+
+2 rows deleted.
+
+
+2 rows deleted.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row updated.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+SQL> set serveroutput on;
+SQL> exec GenerateCustomerBill('1');
+Name: Smith                                                                     
+Phone: 4085551212                                                               
+Email: email@example.com                                                        
+Address: San Jose                                                               
+Time In: 08-MAR-19 12.00.00.000000 AM                                           
+Time Out: 14-MAR-19 10.04.51.001036 AM                                          
+License Number: 11111111                                                        
+Model: Prius                                                                    
+Problem Type: transmission problem                                              
+Labor Hours: 1                                                                  
+Hourly Rate: 20                                                                 
+Part: tire                                                                      
+Total Amount: 100                                                               
+
+PL/SQL procedure successfully completed.
+
+SQL> exec GenerateCustomerBill('2');
+Name: Jones                                                                     
+Phone: 4085554444                                                               
+Email: email@example.com                                                        
+Address: New York                                                               
+Time In: 09-MAR-19 12.00.00.000000 AM                                           
+Time Out: 14-MAR-19 10.04.55.267148 AM                                          
+License Number: 22222222                                                        
+Model: Prius                                                                    
+Problem Type: wheel alignment                                                   
+Labor Hours: 1                                                                  
+Hourly Rate: 20                                                                 
+Part: wheel                                                                     
+Total Amount: 100                                                               
+
+PL/SQL procedure successfully completed.
+
+SQL> exec GenerateCustomerBill('3');
+Name: Clark                                                                     
+Phone: 4083331212                                                               
+Email: email@example.com                                                        
+Address: Houston                                                                
+Time In: 14-MAR-19 10.04.34.104943 AM                                           
+Time Out: 14-MAR-19 10.04.58.227294 AM                                          
+License Number: 33333333                                                        
+Model: Prius                                                                    
+Problem Type: transmission problem                                              
+Labor Hours: 1                                                                  
+Hourly Rate: 20                                                                 
+Part: tire                                                                      
+Part: wheel                                                                     
+Total Amount: 150                                                               
+
+PL/SQL procedure successfully completed.
+
+SQL> DELETE FROM Part_RepairJob WHERE repairjobid = '4';
+
+0 rows deleted.
+
+SQL> DELETE FROM RepairJob WHERE repairjobid = '4';
+
+1 row deleted.
+
+SQL> exec GenerateCustomerBill('5');
+Name: Chen                                                                      
+Phone: 4086661212                                                               
+Email: email@example.com                                                        
+Address: Chicago                                                                
+Time In: 14-MAR-19 10.04.34.106335 AM                                           
+Time Out: 14-MAR-19 10.05.08.948965 AM                                          
+License Number: 44444444                                                        
+Model: Prius                                                                    
+Problem Type: wheel alignment                                                   
+Labor Hours: 1                                                                  
+Hourly Rate: 20                                                                 
+Part: tire                                                                      
+Part: wheel                                                                     
+Total Amount: 135                                                               
+
+PL/SQL procedure successfully completed.
+
+SQL> DELETE FROM Part_RepairJob WHERE repairjobid = '1';
+
+1 row deleted.
+
+SQL> DELETE FROM Part_RepairJob WHERE repairjobid = '2';
+
+1 row deleted.
+
+SQL> DELETE FROM Part_RepairJob WHERE repairjobid = '3';
+
+2 rows deleted.
+
+SQL> DELETE FROM Part_RepairJob WHERE repairjobid = '5';
+
+2 rows deleted.
+
+SQL> DELETE FROM RepairJob WHERE repairjobid = '1';
+
+1 row deleted.
+
+SQL> DELETE FROM RepairJob WHERE repairjobid = '2';
+
+1 row deleted.
+
+SQL> DELETE FROM RepairJob WHERE repairjobid = '3';
+
+1 row deleted.
+
+SQL> DELETE FROM RepairJob WHERE repairjobid = '5';
+
+1 row deleted.
+
+SQL> SELECT * FROM Log;
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+4                                                                               
+10-MAR-19 12.00.00.000000 AM                                                    
+                                                                                
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+44444444 Prius                         1             Chicago              2     
+2                                                                               
+                                                                                
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+1                                                                               
+08-MAR-19 12.00.00.000000 AM                                                    
+14-MAR-19 10.04.51.001036 AM                                                    
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+11111111 Prius                         1         100 San Jose             1     
+1                                                                               
+                                                                                
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+2                                                                               
+09-MAR-19 12.00.00.000000 AM                                                    
+14-MAR-19 10.04.55.267148 AM                                                    
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+22222222 Prius                         1         100 New York             2     
+2                                                                               
+                                                                                
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+3                                                                               
+14-MAR-19 10.04.34.104943 AM                                                    
+14-MAR-19 10.04.58.227294 AM                                                    
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+33333333 Prius                         1         150 Houston              2     
+1                                                                               
+                                                                                
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+5                                                                               
+14-MAR-19 10.04.34.106335 AM                                                    
+14-MAR-19 10.05.08.948965 AM                                                    
+
+REPAI                                                                           
+-----                                                                           
+TIMEIN                                                                          
+---------------------------------------------------------------------------     
+TIMEOUT                                                                         
+---------------------------------------------------------------------------     
+LICENSEN MODEL                LABORHOURS TOTALAMOUNT ADDRESS              EMPLO 
+-------- -------------------- ---------- ----------- -------------------- ----- 
+PROBL                                                                           
+-----                                                                           
+44444444 Prius                         1         135 Chicago              2     
+2                                                                               
+                                                                                
+
+SQL> SELECT name FROM Mechanic WHERE employeeid IN (SELECT employeeid FROM Log GROUP BY employeeid HAVING SUM(laborhours) >= ALL (SELECT SUM(laborhours) FROM Log GROUP BY employeeid));
+
+NAME                                                                            
+--------------------                                                            
+Bloggs                                                                          
+
+SQL> SELECT name FROM Mechanic WHERE employeeid IN (SELECT employeeid FROM Log GROUP BY employeeid HAVING SUM(laborhours) <= ALL (SELECT SUM(laborhours) FROM Log GROUP BY employeeid));
+
+NAME                                                                            
+--------------------                                                            
+Grant                                                                           
+
+SQL> SELECT name, totallaborhours FROM Mechanic NATURAL JOIN (SELECT employeeid, SUM(laborhours) / COUNT(*) AS totallaborhours FROM Log GROUP BY employeeid);
+
+NAME                 TOTALLABORHOURS                                            
+-------------------- ---------------                                            
+Grant                              1                                            
+Bloggs                             1                                            
+
+SQL> SELECT repairjobid FROM Log WHERE timein > TO_DATE('2019/03/08', 'yyyy/mm/dd') AND timein < TO_DATE('2019/03/15', 'yyyy/mm/dd');
+
+REPAI                                                                           
+-----                                                                           
+4                                                                               
+2                                                                               
+3                                                                               
+5                                                                               
+
+SQL> SELECT SUM(totalamount) FROM Log WHERE timein > TO_DATE('2019/03/08', 'yyyy/mm/dd') AND timein < TO_DATE('2019/03/15', 'yyyy/mm/dd');
+
+SUM(TOTALAMOUNT)                                                                
+----------------                                                                
+             385                                                                
+
+SQL> spool off

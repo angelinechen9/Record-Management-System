@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<title>Meteor Repair Record System</title>
+	</head>
+	<body>
+		<form method = "post" action = "CreateRepairJob.php">
+			<div class = "form-row">				
+				<div class = "form-group col-md-4">
+					<label for = "customername">Customer Name</label>
+					<br>
+					<input class = "form-control" type = "text" name = "customername">
+					<br>
+				</div>
+				<div class = "form-group col-md-4">
+					<label for = "phone">Phone</label>
+					<br>
+					<input class = "form-control" type = "text" name = "phone">
+					<br>
+				</div>
+			</div>
+			<div class = "form-row">
+				<div class = "form-group col-md-4">
+					<label for = "email">Email</label>
+					<br>
+					<input class = "form-control" type = "text" name = "email">
+					<br>
+				</div>
+				<div class = "form-group col-md-4">
+					<label for = "address">Address</label>
+					<br>
+					<input class = "form-control" type = "text" name = "address">
+					<br>
+				</div>
+			</div>
+			<div class = "form-row">
+				<div class = "form-group col-md-4">
+					<label for = "licensenumber">License Number</label>
+					<br>
+					<input class = "form-control" type = "text" name = "licensenumber">
+					<br>
+				</div>
+				<div class = "form-group col-md-4">
+					<label for = "model">Model</label>
+					<br>
+					<input class = "form-control" type = "text" name = "model">
+					<br>
+				</div>
+			</div>
+			<div class = "form-row">
+				<div class = "form-group col-md-4">
+					<label for = "repairjobid">Repair Job Id</label>
+					<br>
+					<input class = "form-control" type = "text" name = "repairjobid">
+					<br>
+				</div>
+				<div class = "form-group col-md-4">
+					<label for = "employeeid">Employee Id</label>
+					<br>
+					<input class = "form-control" type = "text" name = "employeeid">
+					<br>
+				</div>
+			</div>
+			<input class = "btn btn-primary" type = "submit" value = "Create Repair Job">
+		</form>
+	</body>
+</html>
